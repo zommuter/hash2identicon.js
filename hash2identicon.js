@@ -10,3 +10,6 @@ var jdenticon = require("jdenticon"),
     svg = jdenticon.toSvg(hash, size);
     
 fs.writeFileSync("./" + input + ".svg", svg);
+
+// https://stackoverflow.com/a/34958537/321973
+require('child_process').execSync("convert " + input + ".svg -define icon:auto-resize=16,32,48,64,256 " + input + ".ico")
